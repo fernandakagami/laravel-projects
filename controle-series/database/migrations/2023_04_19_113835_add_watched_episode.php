@@ -22,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('episodes', function (Blueprint $table) {
-            //
+            $table->dropColumn('watched');
         });
     }
 };
