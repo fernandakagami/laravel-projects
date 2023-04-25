@@ -29,6 +29,7 @@ Route::post('/login', function(Request $request) {
     }
 
     $user = \Illuminate\Support\Facades\Auth::user();
+    $user->tokens()->delete();
     $token = $user->createToken('token');
 
     return response()->json($token->plainTextToken);
