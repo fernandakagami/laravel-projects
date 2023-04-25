@@ -18,4 +18,18 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('/series', \App\Http\Controllers\Api\SeriesController::class);
+Route::middleware('auth:sanctum')->group(function () {
+    Route::apiResource('/series', \App\Http\Controllers\Api\SeriesController::class);
+});
+
+Route::post('/login', function(Request $request) {
+    $credentials = $request->only(['email', 'password']);
+    if (\Illuminate\Support\Facades\Auth::attempt($credentials) === false) {
+        return response()->json('Unauthorized', 401);
+    }
+
+    $user = \Illuminate\Support\Facades\Auth::user();
+    $token = $user->createToken('token');
+
+    return response()->json($token->plainTextToken);
+});
