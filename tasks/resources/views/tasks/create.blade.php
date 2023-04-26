@@ -39,18 +39,7 @@
                 name="deadline"                
                 value="{{ old('deadline') }}"
             >            
-        </div>
-
-        <div>
-            <label for="created">Created At</label>
-            <input 
-                type="text"
-                id="created"
-                name="created"                
-                value="{{ old('created') }}"
-                disabled
-            >            
-        </div>
+        </div>        
         
         <button>Add</button>
     </form>
