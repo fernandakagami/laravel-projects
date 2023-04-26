@@ -23,11 +23,6 @@ class TasksController extends Controller
 
     public function store(TaskFormRequest $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'deadline' => 'required',
-        ]);
-        
         Task::create($request->all());
          
         return to_route('tasks.index')->with('message','Task created successfully.');

@@ -34,7 +34,7 @@
         <div>
             <label for="deadline">Deadline</label>
             <input 
-                type="text"
+                type="date"
                 id="deadline"
                 name="deadline"                
                 value="{{ old('deadline') }}"
