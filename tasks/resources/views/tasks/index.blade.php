@@ -7,6 +7,13 @@
     <title>Teste</title>
 </head>
 <body>
-    <h1>Teste</h1>
+    <h1>Lista de Tarefas</h1>
+    <ul>
+        @foreach ($tasks as $task)
+            <li>
+               {{ $task->name }}
+            </li>
+        @endforeach
+    </ul>    
 </body>
 </html>
