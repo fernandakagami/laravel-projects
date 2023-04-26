@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TasksController;
 use App\Http\Controllers\Auth\LoginRegisterController;
 
 /*
@@ -14,8 +15,10 @@ use App\Http\Controllers\Auth\LoginRegisterController;
 |
 */
 
+Route::resource('/tasks', TasksController::class);
+
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/tasks');
 });
 
 Route::controller(LoginRegisterController::class)->group(function() {
