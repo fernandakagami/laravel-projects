@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TasksController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\LoginRegisterController;
+use App\Http\Controllers\SignupController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,11 +26,14 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'store'])->name('signin');
 Route::get('/logout', [LoginController::class, 'destroy'])->name('logout');
 
-Route::controller(LoginRegisterController::class)->group(function() {
-    Route::get('/register', 'register')->name('register');
-    Route::post('/store', 'store')->name('store');
+Route::get('/signup', [SignupController::class, 'index'])->name('signup');
+Route::post('/signup', [SignupController::class, 'store'])->name('register');
+
+//Route::controller(LoginRegisterController::class)->group(function() {
+    //Route::get('/register', 'register')->name('register');
+    //Route::post('/store', 'store')->name('store');
     //Route::get('/login', 'login')->name('login');
-    Route::post('/authenticate', 'authenticate')->name('authenticate');
-    Route::get('/dashboard', 'dashboard')->name('dashboard');
+    //Route::post('/authenticate', 'authenticate')->name('authenticate');
+    //Route::get('/dashboard', 'dashboard')->name('dashboard');
     //Route::post('/logout', 'logout')->name('logout');
-});
+//});

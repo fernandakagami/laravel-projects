@@ -22,7 +22,7 @@
                         <a class="nav-link {{ (request()->is('login')) ? 'active' : '' }}" href="{{ route('login') }}">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ (request()->is('register')) ? 'active' : '' }}" href="{{ route('register') }}">Register</a>
+                        <a class="nav-link {{ (request()->is('register')) ? 'active' : '' }}" href="{{ route('signup') }}">Register</a>
                     </li>
                 @else    
                     <li class="nav-item dropdown">
@@ -30,13 +30,8 @@
                             {{ Auth::user()->name }}
                         </a>
                         <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();"
-                            >Logout</a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                @csrf
-                            </form>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
                         </li>
                         </ul>
                     </li>

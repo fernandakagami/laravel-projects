@@ -36,7 +36,7 @@ class LoginController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function authenticate(Request $request)
+    public function store(Request $request)
     {
         $credentials = $request->validate([
             'email' => 'required|email',
@@ -46,13 +46,11 @@ class LoginController extends Controller
         if(Auth::attempt($credentials))
         {
             $request->session()->regenerate();
-            return redirect()->route('dashboard')
+            return to_route('tasks')
                 ->withSuccess('You have successfully logged in!');
         }
 
-        return back()->withErrors([
-            'email' => 'Your provided credentials do not match in our records.',
-        ])->onlyInput('email');
+        return to_route('login');
 
     } 
     
@@ -62,12 +60,11 @@ class LoginController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function logout(Request $request)
+    public function destroy(Request $request)
     {
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect()->route('login')
-            ->withSuccess('You have logged out successfully!');;
+        return to_route('login');
     }    
 }
