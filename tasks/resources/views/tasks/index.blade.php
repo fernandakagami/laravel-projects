@@ -21,9 +21,13 @@
                     <td>{{ $task->deadline }}</td>
                     <td>{{ $task->created_at }}</td>                
                     <td>{{ $task->updated_at }}</td>
-                    <td>
-                        <a class="btn btn-primary">E</a>
-                        <a class="btn btn-danger">X</a>
+                    <td class="d-flex">
+                        <a class="btn btn-primary">E</a>                        
+                        <form action="{{ route('tasks.destroy', $task->id) }}" method="post" class="ms-2">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger">X</button>
+                        </form>                        
                     </td>
                 </tr>
             @endforeach
