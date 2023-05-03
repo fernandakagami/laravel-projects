@@ -14,10 +14,7 @@ class LoginController extends Controller
      * Instantiate a new LoginRegisterController instance.
      */
     public function __construct()
-    {
-        $this->middleware('guest')->except([
-            'logout'
-        ]);
+    {        
     }
 
     /**
@@ -46,7 +43,7 @@ class LoginController extends Controller
         if(Auth::attempt($credentials))
         {
             $request->session()->regenerate();
-            return to_route('tasks')
+            return to_route('tasks.index')
                 ->withSuccess('You have successfully logged in!');
         }
 
