@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->string('title')->unique();
             $table->longText('description')->nullable();
             $table->date('deadline');
             $table->foreignId('users_id')->constrained()->onDelete('cascade');

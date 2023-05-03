@@ -2,11 +2,11 @@
 
 @section('content')
 
-    <h1>Lista de Tarefas</h1>
+    <h1>Tasks</h1>
     <ul>
         @foreach ($tasks as $task)
             <li>
-               {{ $task->name }}
+               {{ $task->title }}
             </li>
         @endforeach
     </ul>    

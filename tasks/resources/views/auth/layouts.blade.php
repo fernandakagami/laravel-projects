@@ -10,8 +10,7 @@
 <body>
 
     <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container">
-          <a class="navbar-brand" href="{{ URL('/') }}">Custom Login Register</a>
+        <div class="container">          
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -30,6 +29,9 @@
                             {{ Auth::user()->name }}
                         </a>
                         <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item" href="{{ route('tasks.create') }}">Create task</a>
+                        </li>
                         <li>
                             <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
                         </li>

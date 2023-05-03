@@ -1,23 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Task</title>
-</head>
-<body>
-<form action="{{ route('tasks.store') }}" method="post"> 
+@extends('auth.layouts')
+
+@section('content')
+
+<div>
+    <h1>Create Task</h1>
+    <form action="{{ route('tasks.store') }}" method="post"> 
         @csrf
     
         <div>
-            <label for="name">Name</label>
+            <label for="title">Title</label>
             <input 
                 autofocus
                 type="text"
-                id="name"
-                name="name"                    
-                value="{{ old('name') }}"
+                id="title"
+                name="title"                    
+                value="{{ old('title') }}"
             >            
         </div>
 
@@ -43,5 +40,6 @@
         
         <button>Add</button>
     </form>
-</body>
-</html>
+</div>
+
+@endsection

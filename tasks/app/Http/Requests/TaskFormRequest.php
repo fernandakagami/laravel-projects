@@ -22,7 +22,7 @@ class TaskFormRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required'],
+            'title' => ['required'],
             'deadline' => ['required']
         ];
     }
@@ -30,7 +30,7 @@ class TaskFormRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'Name is required',
+            'title.required' => 'Title is required',
             'deadline.required' => 'Deadline is required'
         ];
     }
