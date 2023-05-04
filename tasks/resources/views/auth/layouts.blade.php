@@ -29,9 +29,15 @@
                             {{ Auth::user()->name }}
                         </a>
                         <ul class="dropdown-menu">
-                        <li>
-                            <a class="dropdown-item" href="{{ route('tasks.create') }}">Create task</a>
-                        </li>
+                            @if(Request::is('tasks'))
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('tasks.create') }}">Create task</a>
+                                </li>
+                            @else
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('tasks.index') }}">Tasks List</a>
+                                </li>                        
+                            @endif
                         <li>
                             <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
                         </li>
