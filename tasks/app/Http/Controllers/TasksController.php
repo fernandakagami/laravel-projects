@@ -38,6 +38,19 @@ class TasksController extends Controller
         return to_route('tasks.index')->with('message','Task created successfully.');
     }
 
+    public function edit(Task $task)
+    {
+        return view('tasks.edit')->with('task', $task);
+    }
+
+    public function update(Task $task, Request $request)
+    {
+        $task->fill($request->all());
+        $task->save();
+
+        return to_route('tasks.index')->with('mensagem.sucesso', "Task updated successfully.");
+    }
+
     public function destroy(Task $task, Request $request)
     {
         $task->delete();
